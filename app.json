@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Challenge Movie",
+    "slug": "challenge-movie",
+    "scheme": "challenge-movie",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.challenge-movie",
+      "requireFullScreen": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png"
+      },
+      "package": "br.com.challenge-movie"
+    },
+    "plugins": ["expo-font"]
+  }
+}
