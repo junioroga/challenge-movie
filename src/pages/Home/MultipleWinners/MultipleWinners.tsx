@@ -15,9 +15,10 @@ export const MultipleWinners = () => {
     []
   )
 
-  const renderSeparator = useCallback(() => (
-    <View testID="multiple-winners-separator" style={{ width: 10 }} />
-  ), [])
+  const renderSeparator = useCallback(
+    () => <View testID="multiple-winners-separator" style={{ width: 10 }} />,
+    []
+  )
 
   const renderEmpty = useCallback(
     () => (

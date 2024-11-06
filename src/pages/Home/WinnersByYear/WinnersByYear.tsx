@@ -25,9 +25,10 @@ export const WinnersByYear = () => {
     []
   )
 
-  const renderSeparator = useCallback(() => (
-    <View testID="winners-by-year-separator" style={{ width: 10 }} />
-  ), []);
+  const renderSeparator = useCallback(
+    () => <View testID="winners-by-year-separator" style={{ width: 10 }} />,
+    []
+  )
 
   const renderEmpty = useCallback(
     () => (

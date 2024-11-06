@@ -4,16 +4,16 @@ import { act, fireEvent, render, screen } from '@testing-library/react-native'
 import { Movies } from './Movies'
 
 jest.mock('@/hooks', () => ({
-  useMovieList: jest.fn()
+  useMovieList: jest.fn(),
 }))
 
 jest.mock('@tanstack/react-query', () => ({
-  useQueryClient: jest.fn()
+  useQueryClient: jest.fn(),
 }))
 
 const mockUseMovieList = useMovieList as jest.Mock
 const mockQueryClient = {
-  removeQueries: jest.fn()
+  removeQueries: jest.fn(),
 }
 
 describe('Movies', () => {
@@ -27,13 +27,13 @@ describe('Movies', () => {
       hasNextPage: false,
       fetchNextPage: jest.fn(),
       refetch: jest.fn(),
-      data: { pages: [] }
+      data: { pages: [] },
     })
   })
 
   it('deve renderizar os títulos dos filtros', () => {
     render(<Movies />)
-    
+
     expect(screen.getByText('Ano')).toBeTruthy()
     expect(screen.getByText('Vencedor?')).toBeTruthy()
   })
@@ -42,8 +42,8 @@ describe('Movies', () => {
     const mockData = {
       pages: [
         { id: 1, title: 'Filme 1' },
-        { id: 2, title: 'Filme 2' }
-      ]
+        { id: 2, title: 'Filme 2' },
+      ],
     }
 
     const mockHasNextPage = true
@@ -56,11 +56,11 @@ describe('Movies', () => {
       hasNextPage: mockHasNextPage,
       fetchNextPage: mockFetchNextPage,
       refetch: jest.fn(),
-      data: mockData
+      data: mockData,
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     const movieList = getByTestId('movie-list')
     expect(movieList.props.data).toEqual(mockData.pages)
     expect(typeof movieList.props.onEndReached).toBe('function')
@@ -77,11 +77,11 @@ describe('Movies', () => {
       hasNextPage: false,
       fetchNextPage: jest.fn(),
       refetch: mockRefetch,
-      data: { pages: [{ id: 1 }] }
+      data: { pages: [{ id: 1 }] },
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     await act(async () => {
       const movieList = getByTestId('movie-list')
       await movieList.props.onRefresh()
@@ -100,11 +100,11 @@ describe('Movies', () => {
       hasNextPage: false,
       fetchNextPage: jest.fn(),
       refetch: mockRefetch,
-      data: { pages: [{ id: 1 }] }
+      data: { pages: [{ id: 1 }] },
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     await act(async () => {
       const movieList = getByTestId('movie-list')
       await movieList.props.onRefresh()
@@ -123,14 +123,14 @@ describe('Movies', () => {
       hasNextPage: false,
       fetchNextPage: mockFetchNextPage,
       refetch: jest.fn(),
-      data: { pages: [{ id: 1 }] }
+      data: { pages: [{ id: 1 }] },
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     const movieList = getByTestId('movie-list')
     fireEvent(movieList, 'onEndReached')
-    
+
     expect(mockFetchNextPage).not.toHaveBeenCalled()
   })
 
@@ -143,14 +143,14 @@ describe('Movies', () => {
       hasNextPage: true,
       fetchNextPage: mockFetchNextPage,
       refetch: jest.fn(),
-      data: { pages: [{ id: 1 }] }
+      data: { pages: [{ id: 1 }] },
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     const movieList = getByTestId('movie-list')
     fireEvent(movieList, 'onEndReached')
-    
+
     expect(mockFetchNextPage).not.toHaveBeenCalled()
   })
 
@@ -163,14 +163,14 @@ describe('Movies', () => {
       hasNextPage: true,
       fetchNextPage: mockFetchNextPage,
       refetch: jest.fn(),
-      data: { pages: [{ id: 1 }] }
+      data: { pages: [{ id: 1 }] },
     })
 
     const { getByTestId } = render(<Movies />)
-    
+
     const movieList = getByTestId('movie-list')
     fireEvent(movieList, 'onEndReached')
-    
+
     expect(mockFetchNextPage).toHaveBeenCalled()
   })
-}) 
+})

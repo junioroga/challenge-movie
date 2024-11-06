@@ -19,7 +19,7 @@ export const Text = ({
     800: 'Poppins_800ExtraBold',
     900: 'Poppins_900Black',
   }
-  
+
   if (style) {
     if (style instanceof Array) {
       style.forEach((s) => {

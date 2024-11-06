@@ -1,1 +1,1 @@
-export const getFontSize = (size: number) => size; 
+export const getFontSize = (size: number) => size

@@ -12,7 +12,7 @@ export const StudiosWinnersItem = ({ item }: { item: Studios }) => {
         width: 200,
         justifyContent: 'space-between',
         borderRadius: 5,
-        gap: 5
+        gap: 5,
       }}
     >
       <View>

@@ -8,7 +8,7 @@ describe('WinnersByYearItem', () => {
     title: 'Teste de Filme',
     studios: ['Studio 1', 'Studio 2'],
     producers: ['Producer 1', 'Producer 2'],
-    winner: true
+    winner: true,
   }
 
   it('deve renderizar corretamente com as propriedades do filme', () => {
@@ -31,7 +31,7 @@ describe('WinnersByYearItem', () => {
   it('deve truncar o título do filme quando for muito longo', () => {
     const longTitleMovie = {
       ...mockMovie,
-      title: 'Este é um título muito longo que deve ser truncado na visualização'
+      title: 'Este é um título muito longo que deve ser truncado na visualização',
     }
 
     render(<WinnersByYearItem item={longTitleMovie} />)
@@ -39,4 +39,4 @@ describe('WinnersByYearItem', () => {
     const titleElement = screen.getByText(longTitleMovie.title)
     expect(titleElement.props.numberOfLines).toBe(1)
   })
-}) 
+})

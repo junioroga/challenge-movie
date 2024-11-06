@@ -25,9 +25,7 @@ const queryCliente = new QueryClient({
 })
 
 const AllTheProviders: FC<{ children: React.ReactNode }> = ({ children }) => (
-  <QueryClientProvider client={queryCliente}>
-    {children}
-  </QueryClientProvider>
+  <QueryClientProvider client={queryCliente}>{children}</QueryClientProvider>
 )
 
 const customRender = (ui: ReactElement, options?: Options) =>

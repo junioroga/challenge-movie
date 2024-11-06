@@ -8,7 +8,7 @@ export const Skeleton = () => {
 
   return (
     <ContentLoader
-    testID="multiple-winners-skeleton"
+      testID="multiple-winners-skeleton"
       speed={2}
       width={width}
       height={height}

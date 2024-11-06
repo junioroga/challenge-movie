@@ -2,10 +2,10 @@ import { useWinnersByYear } from '@/hooks'
 import { render, screen } from '@testing-library/react-native'
 import { WinnersByYear } from './WinnersByYear'
 
-jest.mock('@/components/Select');
+jest.mock('@/components/Select')
 
 jest.mock('@/hooks', () => ({
-  useWinnersByYear: jest.fn()
+  useWinnersByYear: jest.fn(),
 }))
 
 const mockUseWinnersByYear = useWinnersByYear as jest.Mock
@@ -16,7 +16,7 @@ describe('WinnersByYear', () => {
     mockUseWinnersByYear.mockReturnValue({
       isLoading: false,
       isFetching: false,
-      data: []
+      data: [],
     })
   })
 
@@ -34,7 +34,7 @@ describe('WinnersByYear', () => {
     mockUseWinnersByYear.mockReturnValue({
       isLoading: true,
       isFetching: true,
-      data: []
+      data: [],
     })
 
     render(<WinnersByYear />)
@@ -44,17 +44,17 @@ describe('WinnersByYear', () => {
   it('deve renderizar a lista de filmes quando houver dados', () => {
     const mockMovies = [
       { id: 1, title: 'Filme 1', year: 2021 },
-      { id: 2, title: 'Filme 2', year: 2021 }
+      { id: 2, title: 'Filme 2', year: 2021 },
     ]
 
     mockUseWinnersByYear.mockReturnValue({
       isLoading: false,
       isFetching: false,
-      data: mockMovies
+      data: mockMovies,
     })
 
     render(<WinnersByYear />)
-    
+
     const flatList = screen.getByTestId('winners-by-year-flatlist')
     expect(flatList.props.data).toEqual(mockMovies)
   })
@@ -62,19 +62,19 @@ describe('WinnersByYear', () => {
   it('deve renderizar o separador entre os itens da lista', () => {
     const mockMovies = [
       { id: 1, title: 'Filme 1', year: 2021 },
-      { id: 2, title: 'Filme 2', year: 2021 }
+      { id: 2, title: 'Filme 2', year: 2021 },
     ]
 
     mockUseWinnersByYear.mockReturnValue({
       isLoading: false,
       isFetching: false,
-      data: mockMovies
+      data: mockMovies,
     })
 
     render(<WinnersByYear />)
-    
+
     const separator = screen.getByTestId('winners-by-year-separator')
     expect(separator).toBeTruthy()
     expect(separator.props.style).toEqual({ width: 10 })
   })
-}) 
+})

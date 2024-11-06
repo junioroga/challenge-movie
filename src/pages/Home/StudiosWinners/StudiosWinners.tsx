@@ -15,9 +15,10 @@ export const StudiosWinners = () => {
     []
   )
 
-  const renderSeparator = useCallback(() => (
-    <View testID="studios-winners-separator" style={{ width: 10 }} />
-  ), [])
+  const renderSeparator = useCallback(
+    () => <View testID="studios-winners-separator" style={{ width: 10 }} />,
+    []
+  )
 
   const renderEmpty = useCallback(
     () => (
@@ -38,7 +39,7 @@ export const StudiosWinners = () => {
     (item: Studios, index: number) => `${String(item.name)}${index}`,
     []
   )
- 
+
   return (
     <Animated.FlatList
       testID="studios-winners-flatlist"

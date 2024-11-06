@@ -8,7 +8,7 @@ describe('MovieItem', () => {
     winner: true,
     year: 2023,
     studios: ['Studio 1', 'Studio 2'],
-    producers: ['Producer 1', 'Producer 2']
+    producers: ['Producer 1', 'Producer 2'],
   }
 
   it('deve renderizar corretamente os labels', () => {
@@ -45,9 +45,9 @@ describe('MovieItem', () => {
 
     expect(mainContainer.props.style).toEqual({ flexDirection: 'row' })
     expect(labelsContainer.props.style).toEqual({ flex: 0.3 })
-    expect(valuesContainer.props.style).toEqual({ 
-      flex: 0.7, 
-      alignItems: 'flex-end' 
+    expect(valuesContainer.props.style).toEqual({
+      flex: 0.7,
+      alignItems: 'flex-end',
     })
   })
-}) 
+})

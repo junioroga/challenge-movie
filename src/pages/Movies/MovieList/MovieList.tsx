@@ -35,7 +35,10 @@ export const MovieList = ({
 
   const renderSeparator = useCallback(
     () => (
-      <View testID="movie-list-separator" style={{ height: 1, width: '100%', marginVertical: 4, backgroundColor: '#d1d1d1' }} />
+      <View
+        testID="movie-list-separator"
+        style={{ height: 1, width: '100%', marginVertical: 4, backgroundColor: '#d1d1d1' }}
+      />
     ),
     []
   )
@@ -58,7 +61,10 @@ export const MovieList = ({
   const renderFooter = useCallback(() => {
     if (isFetchingNextPage) {
       return (
-        <View testID="movie-list-footer-loading" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginVertical: 12 }}>
+        <View
+          testID="movie-list-footer-loading"
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginVertical: 12 }}
+        >
           <ActivityIndicator />
         </View>
       )
